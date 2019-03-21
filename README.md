@@ -1,10 +1,13 @@
 # README
 Docker container for [meshalyzer](https://github.com/mcellteam/mesh_tools/tree/bee441963034df7592b49ca015f956bd3f8f414f/meshalyzer).
 
-The Docker image can be found [here](https://hub.docker.com/r/icaoberg/meshalyzer).
+## About
+The purpose of the program is to quickly analyze and report on both general characteristics and four topological attributes of meshes. Running meshalyzer on a mesh file will provide enough information in a single report to determine if the mesh will fail as input to any of the manipulation processes described in this project.
 
 ## Docker image
-To pull the image
+The Docker image can be found [here](https://hub.docker.com/r/icaoberg/meshalyzer).
+
+To pull the image from Dockerhub
 
 ```
 docker pull icaoberg/meshalyzer
