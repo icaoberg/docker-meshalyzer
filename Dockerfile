@@ -38,5 +38,5 @@ RUN cd /opt/meshalyzer && \
 ENV PATH="/opt/meshalyzer/bin:${PATH}"
 USER $USERNAME
 WORKDIR /home/$USERNAME
-ENTRYPOINT ["/opt/meshalyzer/bin/meshalyzer"]
+ENTRYPOINT ["meshalyzer"]
 ###############################################################################################
