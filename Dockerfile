@@ -11,9 +11,8 @@ LABEL Web="http://www.cellorganizer.org"
 # UPDATE OS AND INSTALL TOOLS
 USER root
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-RUN apt-get install -y build-essential git unzip wget curl
-RUN apt-get upgrade -y
+RUN apt-get update && \
+	apt-get install -y --no-install-recommends apt-utils build-essential git unzip wget curl
 ###############################################################################################
 
 ###############################################################################################
@@ -29,7 +28,7 @@ RUN if [ ! -d /home/$USERNAME/ ]; then mkdir /home/$USERNAME/; fi
 ###############################################################################################
 # INSTALL MESHALYZER
 USER root
-RUN echo "Downloading and Installing Meshalyzer"
+RUN echo "Downloading and installing Meshalyzer"
 RUN mkdir /opt/meshalyzer
 COPY mesh_tools/meshalyzer /opt/meshalyzer/
 RUN cd /opt/meshalyzer && \
@@ -39,4 +38,5 @@ RUN cd /opt/meshalyzer && \
 ENV PATH="/opt/meshalyzer/bin:${PATH}"
 USER $USERNAME
 WORKDIR /home/$USERNAME
+ENTRYPOINT ["/opt/meshalyzer/bin/meshalyzer"]
 ###############################################################################################
